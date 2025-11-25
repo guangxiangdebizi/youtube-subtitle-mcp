@@ -44,14 +44,6 @@ server.registerTool(
           "Subtitle language code (optional). Examples: zh-Hans (Simplified Chinese), zh-Hant (Traditional Chinese), en (English). Auto-detect if not specified"
         ),
     },
-    outputSchema: {
-      success: z.boolean(),
-      videoId: z.string(),
-      format: z.string(),
-      language: z.string(),
-      subtitleCount: z.number(),
-      content: z.string(),
-    },
   },
   async (args) => {
     return await fetchYoutubeSubtitles.run(args);
