@@ -1,11 +1,11 @@
 {
   "name": "youtube-subtitle-mcp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "MCP Server for fetching YouTube video subtitles/transcripts with multiple format support (SRT, VTT, TXT, JSON)",
   "type": "module",
   "bin": {
-    "youtube-subtitle-mcp": "./build/index.js",
-    "youtube-subtitle-mcp-http": "./build/httpServer.js"
+    "youtube-subtitle-mcp": "build/index.js",
+    "youtube-subtitle-mcp-http": "build/httpServer.js"
   },
   "files": [
     "build"
@@ -33,7 +33,7 @@
   "homepage": "https://github.com/guangxiangdebizi/youtube-subtitle-mcp#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/guangxiangdebizi/youtube-subtitle-mcp.git"
+    "url": "git+https://github.com/guangxiangdebizi/youtube-subtitle-mcp.git"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.22.0",

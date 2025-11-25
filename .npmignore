@@ -1,0 +1,15 @@
+src/
+node_modules/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+tsconfig.json
+*.test.ts
+*.test.js
+test-*.js
+.vscode/
+.cursor/
+streamablehttp
+

@@ -15,6 +15,7 @@ A Model Context Protocol (MCP) server for fetching YouTube video subtitles/trans
 - 🔧 Zero-configuration setup with npx
 - 📊 Complete timestamp information
 - 🚀 Production-ready with TypeScript
+- 🔥 Built with youtubei.js for reliable and stable subtitle extraction
 
 ## 🚀 Quick Start
 
@@ -454,7 +455,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 ## 🙏 Acknowledgments
 
 - [Model Context Protocol](https://modelcontextprotocol.io) - MCP SDK
-- [youtube-transcript](https://www.npmjs.com/package/youtube-transcript) - YouTube transcript library
+- [youtubei.js](https://www.npmjs.com/package/youtubei.js) - Powerful YouTube API wrapper for reliable subtitle extraction
 
 ## 📮 Support
 
