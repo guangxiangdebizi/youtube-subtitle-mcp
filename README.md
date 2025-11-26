@@ -2,6 +2,7 @@
 
 A Model Context Protocol (MCP) server for fetching YouTube video subtitles/transcripts with support for multiple output formats (SRT, VTT, TXT, JSON).
 
+[![smithery badge](https://smithery.ai/badge/@guangxiangdebizi/youtube-subtitle-mcp)](https://smithery.ai/server/@guangxiangdebizi/youtube-subtitle-mcp)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue.svg)](https://www.typescriptlang.org/)
 [![MCP](https://img.shields.io/badge/MCP-0.6.0-green.svg)](https://modelcontextprotocol.io)
