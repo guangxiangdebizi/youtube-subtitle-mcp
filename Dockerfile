@@ -1,31 +1,36 @@
-FROM node:18-alpine
+FROM node:20-slim AS builder
 
-# Set working directory
 WORKDIR /app
 
-# Copy dependency files
-COPY package*.json ./
-COPY tsconfig.json ./
-
-# Install ALL dependencies (including devDependencies for build)
+# Install dependencies first (leveraging cached layers)
+COPY package.json package-lock.json* ./
 RUN npm ci
 
-# Copy source code
-COPY src/ ./src/
-
-# Build TypeScript
+# Copy source files and build
+COPY tsconfig.json ./
+COPY src ./src
+COPY README.md LICENSE ./
 RUN npm run build
 
-# Remove devDependencies after build
-RUN npm prune --production
+# -------- Runtime image --------
+FROM node:20-slim AS runner
 
-# Expose port
+ENV NODE_ENV=production
+WORKDIR /app
+
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/package-lock.json* ./
+COPY --from=builder /app/build ./build
+COPY --from=builder /app/README.md ./README.md
+COPY --from=builder /app/LICENSE ./LICENSE
+
+# Install production dependencies only
+RUN npm ci --omit=dev
+
+# Default configuration (Smithery can override via env)
+ENV PORT=3000
+
 EXPOSE 3000
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:3000/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1))"
-
-# Start HTTP server
-CMD ["npm", "run", "start:http"]
+CMD ["node", "build/httpServer.js"]
 
